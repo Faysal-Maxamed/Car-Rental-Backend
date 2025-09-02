@@ -39,3 +39,15 @@ export const Login=async(req:Request,res:Response)=>{
     }
 }
 
+
+export const GetAllUsers=async(req:Request,res:Response)=>{
+    try {
+        const Users=await User.find();
+        if(Users.length===0){
+            return res.status(400).json({messgae:"No Users found"})
+        }
+        res.status(200).json({messgae:"All Users",Users})
+    } catch (error) {
+        
+    }   
+}
