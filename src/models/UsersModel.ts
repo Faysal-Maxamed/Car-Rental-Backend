@@ -3,7 +3,7 @@ import mongoose,{Schema,Document}  from "mongoose";
 export interface UserModel extends Document{
     name:String,
     email:String,
-    age:String
+    password:String
 }
 
 const UserSchema=new Schema<UserModel>({
@@ -15,7 +15,7 @@ const UserSchema=new Schema<UserModel>({
         type:String,
         required:true
     },
-    age:{
+    password:{
         type:String,
         required:true
     }
