@@ -30,6 +30,7 @@ export const Login=async(req:Request,res:Response)=>{
         if(!user){
             return res.status(400).json({messgae:"Invalid Credentials"})
         }
+        res.status(200).json({messgae:"Login Successfull","UserData":user})
     } catch (error) {
         
     }
