@@ -18,7 +18,7 @@ export  const CreateUser=async(req:Request,res:Response)=>{
         const user =await User.create(value);
         res.status(201).json({messgae:"Succsessfully registered User","UserData":user})
     } catch (error) {
-        res.status(400).json({messgae:"Error creating user"})
+        res.status(500).json(error)
     }
 }
 

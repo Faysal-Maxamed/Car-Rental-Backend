@@ -1,4 +1,3 @@
-import { string } from "joi";
 import mongoose,{Schema,Document}  from "mongoose";
 
 export interface UserModel extends Document{
@@ -24,7 +23,7 @@ const UserSchema=new Schema<UserModel>({
     role:{
         type:String,
         required:true,
-        enum:["user ","admin"]
+        enum:["User ","Admin"]
     }
 
 });
