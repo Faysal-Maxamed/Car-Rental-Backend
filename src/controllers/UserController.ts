@@ -67,3 +67,20 @@ export const deleteUser=async(req:Request,res:Response)=>{
         
     }
 }
+
+
+export const UpdateUser=async(req:Request,res:Response)=>{
+    try {
+        const {id}=req.params;
+        if(!id){
+            return res.status(400).json({messgae:"User id is required"})
+        }
+        const updateuser=await User.findByIdAndUpdate({_id:id},req.body,{new:true});
+        if(!updateuser){
+            return res.status(400).json({messgae:"No User found"})
+        }
+        res.status(200).json({messgae:"User updated successfully",updateuser})
+    } catch (error) {
+        
+    }
+}
