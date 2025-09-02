@@ -51,3 +51,19 @@ export const GetAllUsers=async(req:Request,res:Response)=>{
         
     }   
 }
+
+export const deleteUser=async(req:Request,res:Response)=>{
+    try {
+        const {id}=req.params;
+        if(!id){
+            return res.status(400).json({messgae:"User id is required"})
+        }
+        const deleteUser= await User.findByIdAndDelete({_id:id});
+        if(!deleteUser){
+            return res.status(400).json({messgae:"No User found"})
+        }
+        res.status(200).json({messgae:"User deleted successfully",deleteUser})
+    } catch (error) {
+        
+    }
+}
