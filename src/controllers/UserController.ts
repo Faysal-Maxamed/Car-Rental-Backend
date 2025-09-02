@@ -26,11 +26,14 @@ export  const CreateUser=async(req:Request,res:Response)=>{
 export const Login=async(req:Request,res:Response)=>{
     try {
         const {email,password}=req.body;
-        const user= await User.findOne({email,password});
-        if(!user){
-            return res.status(400).json({messgae:"Invalid Credentials"})
+        const useremail= await User.findOne({email});
+        const userpassword= await User.findOne({password});
+        if(!useremail){
+            return res.status(400).json({messgae:"Invalid Credentials email"})
+        } else if(!userpassword){
+            return res.status(400).json({messgae:"Invalid Credentials password"})
         }
-        res.status(200).json({messgae:"Login Successfull","UserData":user})
+        res.status(200).json({messgae:"Login Successfull",})
     } catch (error) {
         
     }
