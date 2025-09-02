@@ -23,7 +23,7 @@ const UserSchema=new Schema<UserModel>({
     role:{
         type:String,
         required:true,
-        enum:["User ","Admin"]
+        enum:["User","Admin"]
     }
 
 });
