@@ -4,6 +4,7 @@ export interface UserModel extends Document{
     name:String,
     email:String,
     password:String
+    role:"Admin"| "User"
 }
 
 const UserSchema=new Schema<UserModel>({
@@ -18,7 +19,12 @@ const UserSchema=new Schema<UserModel>({
     password:{
         type:String,
         required:true
+    },
+    role:{
+        type:enum,
+        "user ","admin"
     }
+
 });
 
 const UserTable=mongoose.model<UserModel>("UserTable",UserSchema);
