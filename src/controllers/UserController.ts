@@ -2,6 +2,8 @@ import express from "express";
 import type { Request, Response } from "express"; 
 import User from "../models/UsersModel.ts"
 import {userSchema} from "../validators/UserValidators.ts"
+
+
 export  const CreateUser=async(req:Request,res:Response)=>{
     try {
         const {error,value}=userSchema.validate(req.body);
@@ -19,3 +21,4 @@ export  const CreateUser=async(req:Request,res:Response)=>{
         res.status(400).json({messgae:"Error creating user"})
     }
 }
+
